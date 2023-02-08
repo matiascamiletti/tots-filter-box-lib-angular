@@ -6,6 +6,13 @@
  * Entities
  */
 export * from './lib/entities/tots-filter-box-config';
+export * from './lib/entities/tots-item-filter';
+
+/**
+ * Filters
+ */
+export * from './lib/filters/tots-filter-base.component';
+export * from './lib/filters/string-filter/string-filter.component';
 
 /**
  * Components

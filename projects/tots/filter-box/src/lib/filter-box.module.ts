@@ -10,6 +10,8 @@ import { MatBadgeModule } from '@angular/material/badge';
 
 /** Components */
 import { TotsFilterBoxComponent } from './components/tots-filter-box/tots-filter-box.component';
+import { StringFilterComponent } from './filters/string-filter/string-filter.component';
+import { PrintFilterComponent } from './filters/print-filter/print-filter.component';
 
 
 
@@ -17,7 +19,9 @@ import { TotsFilterBoxComponent } from './components/tots-filter-box/tots-filter
   declarations: [
     
     /** Components */
-    TotsFilterBoxComponent
+    TotsFilterBoxComponent,
+         StringFilterComponent,
+         PrintFilterComponent
   ],
   imports: [
     /** Angular */

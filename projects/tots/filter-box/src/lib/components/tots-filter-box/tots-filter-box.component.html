@@ -13,10 +13,14 @@
             <button #addFilterButton="matMenuTrigger" mat-button color="primary" class="btn-add-filter" [matMenuTriggerFor]="addFilter">{{config.textAddButton}}</button>
         </div>
 
+        <div class="filter" *ngFor="let filter of actives; let index = index;">
+            <tots-print-filter [item]="filter"></tots-print-filter>
+        </div>
+
     </div>
 </mat-menu>
 
 <mat-menu #addFilter="matMenu" style="width: 220px !important; max-width: 100vw !important;" [class]="'add-filter-menu'"  class="add-filter-menu">
     <h5 style="margin: 0; padding: 16px 16px"><b>{{config.textButton}}</b></h5>
-    <!--<button mat-menu-item *ngFor="let filter of config.filters" (click)="onAddFilter(filter); $event.stopPropagation();">{{ filter.title }}</button>-->
+    <button mat-menu-item *ngFor="let filter of config.filters" (click)="onAddFilter(filter); $event.stopPropagation();">{{filter.title}}</button>
 </mat-menu>

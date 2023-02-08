@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TotsFilterBoxConfig } from 'projects/tots/filter-box/src/public-api';
+import { StringFilterComponent, TotsFilterBoxConfig } from 'projects/tots/filter-box/src/public-api';
 
 @Component({
   selector: 'app-root',
@@ -19,5 +19,9 @@ export class AppComponent implements OnInit {
     this.config.textButton = 'Filters';
     this.config.textAddButton = '+ Add Filter';
     this.config.textClearButton = 'Clear Filters';
+
+    this.config.filters = [
+      { title: 'Title', component: StringFilterComponent }
+    ];
   }
 }
