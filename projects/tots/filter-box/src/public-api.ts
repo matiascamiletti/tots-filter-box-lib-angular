@@ -3,6 +3,11 @@
  */
 
 /**
+ * Entities
+ */
+export * from './lib/entities/tots-filter-box-config';
+
+/**
  * Components
  */
 export * from './lib/components/tots-filter-box/tots-filter-box.component';
