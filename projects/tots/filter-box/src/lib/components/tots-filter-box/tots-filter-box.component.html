@@ -14,7 +14,7 @@
         </div>
 
         <div class="filter" *ngFor="let filter of actives; let index = index;">
-            <tots-print-filter [item]="filter"></tots-print-filter>
+            <tots-print-filter [item]="filter" (change)="onChange()"></tots-print-filter>
         </div>
 
     </div>

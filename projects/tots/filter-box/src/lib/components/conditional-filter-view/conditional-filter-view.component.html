@@ -1,0 +1,11 @@
+<div>
+    <button mat-stroked-button class="btn" [matMenuTriggerFor]="conditionalFilter" #menuConditional="matMenuTrigger" style="width: 100%;">
+      <span *ngIf="item.conditional == 0">Is</span>
+      <!--<span *ngIf="filter.conditional == 1">Is not</span>-->
+      <mat-icon>expand_more</mat-icon>
+    </button>
+    <mat-menu #conditionalFilter="matMenu">
+      <button mat-menu-item (click)="item.conditional = 0; onChange(); $event.stopPropagation(); menuConditional.closeMenu()">Is</button>
+      <!--<button mat-menu-item (click)="filter.conditional = 1; onChange(); $event.stopPropagation(); closeAllMenuConditional()">{{lang == 'es' ? 'No es' : 'Is not'}}</button>-->
+    </mat-menu>
+  </div>

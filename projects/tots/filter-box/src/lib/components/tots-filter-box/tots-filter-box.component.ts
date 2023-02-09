@@ -33,4 +33,8 @@ export class TotsFilterBoxComponent {
     //this.loadOptionsExternal(filter);
     this.addFilterButton.closeMenu();
   }
+
+  onChange() {
+    this.hasChange = true;
+  }
 }

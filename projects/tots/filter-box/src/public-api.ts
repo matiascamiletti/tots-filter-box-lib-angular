@@ -18,6 +18,7 @@ export * from './lib/filters/string-filter/string-filter.component';
  * Components
  */
 export * from './lib/components/tots-filter-box/tots-filter-box.component';
+export * from './lib/components/conditional-filter-view/conditional-filter-view.component';
 
 /**
  * Modules
