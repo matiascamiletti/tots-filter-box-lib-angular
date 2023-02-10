@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StringFilterComponent, TotsFilterBoxConfig } from 'projects/tots/filter-box/src/public-api';
+import { MultiUsersFilterComponent, StringFilterComponent, TotsFilterBoxConfig } from 'projects/tots/filter-box/src/public-api';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,10 @@ import { StringFilterComponent, TotsFilterBoxConfig } from 'projects/tots/filter
 export class AppComponent implements OnInit {
   
   config?: TotsFilterBoxConfig;
+
+  constructor(
+    protected userService: UserService
+  ){}
 
   ngOnInit(): void {
     this.loadConfig();
@@ -21,7 +26,17 @@ export class AppComponent implements OnInit {
     this.config.textClearButton = 'Clear Filters';
 
     this.config.filters = [
-      { title: 'Title', component: StringFilterComponent }
+      { title: 'Title', component: StringFilterComponent },
+      { title: 'Created By', component: MultiUsersFilterComponent, extra: {
+        service: this.userService,
+        searchFields: ['firstname', 'lastname'],
+        identifierField: 'id',
+        firstnameField: 'firstname',
+        lastnameField: 'lastname',
+        photoField: 'photo',
+        textButton: 'Select user',
+        prependIcon: 'person',
+       } },
     ];
   }
 }

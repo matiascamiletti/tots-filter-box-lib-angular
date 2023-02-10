@@ -12,6 +12,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 
+/** Tots Libraries */
+import { TotsUsersSelectorMenuModule } from '@tots/users-selector-menu';
+
 /** Components */
 import { TotsFilterBoxComponent } from './components/tots-filter-box/tots-filter-box.component';
 import { PrintFilterComponent } from './filters/print-filter/print-filter.component';
@@ -42,6 +45,9 @@ import { MultiUsersFilterComponent } from './filters/multi-users-filter/multi-us
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+
+    /** Tots Libraries */
+    TotsUsersSelectorMenuModule,
 
     /** Angular Material */
     MatButtonModule,
