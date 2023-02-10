@@ -20,6 +20,7 @@ export * from './lib/filters/multi-users-filter/multi-users-filter.component';
  */
 export * from './lib/components/tots-filter-box/tots-filter-box.component';
 export * from './lib/components/conditional-filter-view/conditional-filter-view.component';
+export * from './lib/components/title-filter-view/title-filter-view.component';
 
 /**
  * Modules
