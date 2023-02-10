@@ -20,6 +20,7 @@ import { ConditionalFilterViewComponent } from './components/conditional-filter-
 
 /** Filters */
 import { StringFilterComponent } from './filters/string-filter/string-filter.component';
+import { MultiUsersFilterComponent } from './filters/multi-users-filter/multi-users-filter.component';
 
 
 
@@ -34,6 +35,7 @@ import { StringFilterComponent } from './filters/string-filter/string-filter.com
 
     /** Filters */
     StringFilterComponent,
+    MultiUsersFilterComponent,
   ],
   imports: [
     /** Angular */
@@ -58,6 +60,7 @@ import { StringFilterComponent } from './filters/string-filter/string-filter.com
 
     /** Filters */
     StringFilterComponent,
+    MultiUsersFilterComponent,
   ]
 })
 export class TotsFilterBoxModule { }
