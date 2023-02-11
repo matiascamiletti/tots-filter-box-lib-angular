@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { TotsFilterBoxConfig } from '../../entities/tots-filter-box-config';
 import { TotsItemFilter, TotsItemSelectedFilter } from '../../entities/tots-item-filter';
@@ -14,11 +14,13 @@ export class TotsFilterBoxComponent {
 
   @Input() config!: TotsFilterBoxConfig;
 
+  @Output() apply = new EventEmitter<Array<TotsItemSelectedFilter>>();
+
   actives: Array<TotsItemSelectedFilter> = [];
   hasChange: boolean = false;
 
   onApplyFilters() {
-    
+    this.apply.emit(this.actives);
   }
 
   onClearFilters() {
