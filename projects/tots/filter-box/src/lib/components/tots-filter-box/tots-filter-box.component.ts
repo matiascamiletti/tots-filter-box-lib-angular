@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { TotsFilterBoxConfig } from '../../entities/tots-filter-box-config';
 import { TotsItemFilter, TotsItemSelectedFilter } from '../../entities/tots-item-filter';
@@ -6,7 +6,8 @@ import { TotsItemFilter, TotsItemSelectedFilter } from '../../entities/tots-item
 @Component({
   selector: 'tots-filter-box',
   templateUrl: './tots-filter-box.component.html',
-  styleUrls: ['./tots-filter-box.component.css']
+  styleUrls: ['./tots-filter-box.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TotsFilterBoxComponent {
 

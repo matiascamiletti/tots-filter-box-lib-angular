@@ -1,21 +1,25 @@
-<button mat-button [matMenuTriggerFor]="filters" class="btn-filter">
+<button #filterMainButton="matMenuTrigger" mat-button [matMenuTriggerFor]="filters" class="btn-filter">
     <mat-icon matBadge="{{ actives.length }}" [matBadgeHidden]="actives.length < 1" matBadgePosition="before">tune</mat-icon>
     <span *ngIf="!config.isOnlyIconButton">{{config.textButton}}</span>
 </button>
 
-<mat-menu #filters="matMenu" [class]="'container-filters-menu'" (closed)="onApplyFilters()" style="width: 500px !important; max-width: 100vw !important;">
+<mat-menu #filters="matMenu" class="container-filters-menu" (closed)="onApplyFilters()">
     <div class="filters-menu" (click)="$event.stopPropagation()">
 
-        <div class="header" style="display: flex; align-items: center; gap: 0.2em;">
-            <h5 style="margin: 0; margin-right: auto;"><b>{{config.textButton}}</b></h5>
-            <button *ngIf="actives.length > 0" mat-button class="btn-clean-filter" (click)="onClearFilters()">{{config.textClearButton}}</button>
-            <div *ngIf="actives.length > 0" class="separate-line-ver" style="width: 1px; height: 20px; background-color: #cccccc;"></div>
-            <button #addFilterButton="matMenuTrigger" mat-button color="primary" class="btn-add-filter" [matMenuTriggerFor]="addFilter">{{config.textAddButton}}</button>
+        <div class="header">
+            <h5><b>{{config.textButton}}</b></h5>
+            <div class="actions">
+                <button *ngIf="actives.length > 0" mat-button class="btn-clean-filter" (click)="onClearFilters()">{{config.textClearButton}}</button>
+                <button mat-icon-button (click)="filterMainButton.closeMenu()"><mat-icon>close</mat-icon></button>
+            </div>
+            
         </div>
 
         <div class="filter" *ngFor="let filter of actives; let index = index;">
             <tots-print-filter [item]="filter" (change)="onChange()"></tots-print-filter>
         </div>
+
+        <button #addFilterButton="matMenuTrigger" mat-button color="primary" class="btn-add-filter" [matMenuTriggerFor]="addFilter">{{config.textAddButton}}</button>
 
     </div>
 </mat-menu>

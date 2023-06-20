@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   loadConfig() {
     this.config = new TotsFilterBoxConfig();
     this.config.textButton = 'Filters';
-    this.config.isOnlyIconButton = true;
+    this.config.isOnlyIconButton = false;
     this.config.textAddButton = '+ Add Filter';
     this.config.textClearButton = 'Clear Filters';
 
