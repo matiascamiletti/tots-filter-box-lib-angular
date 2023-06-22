@@ -9,3 +9,34 @@
         gap: 0.2em;
     }
 }
+
+.filter {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    align-self: stretch;
+
+    tots-print-filter {
+        width: 0px;
+    }
+    tots-string-filter, tots-multi-users-filter {
+        width: 100%;
+    }
+}
+
+.tots-simulated-select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 4px 16px;
+    height: 32px;
+
+    border-radius: 2px;
+    border: 1px solid #DEDEDE;
+    background: #FFF;
+}
+
+.filter-selected {
+    width: 180px;
+}

@@ -37,6 +37,12 @@ export class TotsFilterBoxComponent {
     this.addFilterButton.closeMenu();
   }
 
+  onRemoveFilter(index: number) {
+    this.hasChange = true;
+    this.actives.splice(index, 1);
+    this.onApplyFilters();
+  }
+
   onChange() {
     this.hasChange = true;
   }

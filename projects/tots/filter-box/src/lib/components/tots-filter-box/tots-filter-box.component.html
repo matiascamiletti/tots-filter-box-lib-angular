@@ -16,7 +16,12 @@
         </div>
 
         <div class="filter" *ngFor="let filter of actives; let index = index;">
+            <div class="tots-simulated-select filter-selected">
+                <span>{{filter.filter.title}}</span>
+                <mat-icon>arrow_drop_down</mat-icon>
+            </div>
             <tots-print-filter [item]="filter" (change)="onChange()"></tots-print-filter>
+            <button mat-icon-button (click)="onRemoveFilter(index)"><mat-icon>delete_forever</mat-icon></button>
         </div>
 
         <button #addFilterButton="matMenuTrigger" mat-button color="primary" class="btn-add-filter" [matMenuTriggerFor]="addFilter">{{config.textAddButton}}</button>
