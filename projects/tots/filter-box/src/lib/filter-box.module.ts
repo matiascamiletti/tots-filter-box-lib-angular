@@ -14,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 
 /** Tots Libraries */
 import { TotsUsersSelectorMenuModule } from '@tots/users-selector-menu';
+import { TotsFilterMenuModule } from '@tots/filter-menu';
 
 /** Components */
 import { TotsFilterBoxComponent } from './components/tots-filter-box/tots-filter-box.component';
@@ -24,6 +25,8 @@ import { ConditionalFilterViewComponent } from './components/conditional-filter-
 /** Filters */
 import { StringFilterComponent } from './filters/string-filter/string-filter.component';
 import { MultiUsersFilterComponent } from './filters/multi-users-filter/multi-users-filter.component';
+import { MultiSelectFilterComponent } from './filters/multi-select-filter/multi-select-filter.component';
+
 
 
 
@@ -39,6 +42,7 @@ import { MultiUsersFilterComponent } from './filters/multi-users-filter/multi-us
     /** Filters */
     StringFilterComponent,
     MultiUsersFilterComponent,
+    MultiSelectFilterComponent,
   ],
   imports: [
     /** Angular */
@@ -48,6 +52,7 @@ import { MultiUsersFilterComponent } from './filters/multi-users-filter/multi-us
 
     /** Tots Libraries */
     TotsUsersSelectorMenuModule,
+    TotsFilterMenuModule,
 
     /** Angular Material */
     MatButtonModule,
@@ -67,6 +72,7 @@ import { MultiUsersFilterComponent } from './filters/multi-users-filter/multi-us
     /** Filters */
     StringFilterComponent,
     MultiUsersFilterComponent,
+    MultiSelectFilterComponent
   ]
 })
 export class TotsFilterBoxModule { }

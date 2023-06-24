@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MultiUsersFilterComponent, StringFilterComponent, TotsFilterBoxConfig } from 'projects/tots/filter-box/src/public-api';
+import { MultiSelectFilterComponent, MultiUsersFilterComponent, StringFilterComponent, TotsFilterBoxConfig } from 'projects/tots/filter-box/src/public-api';
 import { UserService } from './services/user.service';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { SearchMenuComponent, TotsSearchMenuConfig } from 'projects/tots/filter-menu/src/public-api';
@@ -89,6 +89,7 @@ export class AppComponent implements OnInit {
         textButton: 'Select user',
         prependIcon: 'person',
        } },
+       { title: 'Status', component: MultiSelectFilterComponent },
     ];
   }
 }

@@ -14,6 +14,7 @@ export * from './lib/entities/tots-item-filter';
 export * from './lib/filters/tots-filter-base.component';
 export * from './lib/filters/string-filter/string-filter.component';
 export * from './lib/filters/multi-users-filter/multi-users-filter.component';
+export * from './lib/filters/multi-select-filter/multi-select-filter.component';
 
 /**
  * Components

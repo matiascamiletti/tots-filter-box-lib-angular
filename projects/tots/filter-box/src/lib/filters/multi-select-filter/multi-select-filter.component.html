@@ -1,0 +1,10 @@
+<div class="tots-multi-select-filter">
+    <div #searchMenuButton="matMenuTrigger" class="tots-simulated-intern-select" [matMenuTriggerFor]="searchMatMenu">
+        <span>Pending, In Progress, Completed...</span>
+        <mat-icon>arrow_drop_down</mat-icon>
+    </div>
+</div>
+
+<mat-menu #searchMatMenu="matMenu" class="tots-search-menu-angular">
+    <tots-search-menu #searchMenu (selected)="onSelectedOptionInMenu($event)" [config]="configSearchMenu!"></tots-search-menu>
+</mat-menu>

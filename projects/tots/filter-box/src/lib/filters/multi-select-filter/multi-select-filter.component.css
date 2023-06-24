@@ -1,0 +1,16 @@
+.tots-multi-select-filter {
+    width: 100%;
+}
+
+.tots-simulated-intern-select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 4px 16px;
+    height: 32px;
+
+    border-radius: 2px;
+    border: 1px solid #DEDEDE;
+    background: #FFF;
+}
