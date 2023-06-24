@@ -43,7 +43,7 @@ export class SearchMenuComponent implements OnInit, AfterViewInit {
   }
 
   onClickRemoveSelected(option: any) {
-    this.config.selecteds = this.config.selecteds.filter(item => item.id != option.id);
+    this.config.selecteds = this.config.selecteds.filter(item => item[this.config.keyIdentifier] != option[this.config.keyIdentifier]);
     this.loadItems(this.config.options);
     this.selected.emit(this.config.selecteds);
   }
@@ -69,7 +69,7 @@ export class SearchMenuComponent implements OnInit, AfterViewInit {
       if(value == ''||value == null||value == undefined){
         this.loadItems(this.config.options);
       } else {
-        this.filteredOptions = this.config.options.filter(option => !this.isIncludeOptionInSelecteds(option)).filter(option => option.label.toLowerCase().includes(value.toLowerCase()));
+        this.filteredOptions = this.config.options.filter(option => !this.isIncludeOptionInSelecteds(option)).filter(option => option[this.config.keySearch].toLowerCase().includes(value.toLowerCase()));
       }
     });
   }
@@ -87,7 +87,7 @@ export class SearchMenuComponent implements OnInit, AfterViewInit {
       return false;
     }
 
-    let item = this.config.selecteds.find(item => item.id == option.id);
+    let item = this.config.selecteds.find(item => item[this.config.keyIdentifier] == option[this.config.keyIdentifier]);
     if(item == null || item == undefined){
       return false;
     }

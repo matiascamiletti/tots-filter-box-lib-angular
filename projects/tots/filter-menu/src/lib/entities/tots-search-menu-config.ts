@@ -3,4 +3,7 @@ export class TotsSearchMenuConfig {
     isNeedService = false;
     selecteds = new Array<any>();
     options: Array<any> = [];
+    keyIdentifier = 'id';
+    keyPrint = 'label';
+    keySearch = 'label';
 }
