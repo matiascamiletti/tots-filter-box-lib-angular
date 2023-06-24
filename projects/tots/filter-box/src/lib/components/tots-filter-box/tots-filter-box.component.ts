@@ -33,7 +33,6 @@ export class TotsFilterBoxComponent {
   onAddFilter(filter: TotsItemFilter) {
     this.hasChange = true;
     this.actives.push({ filter: filter, conditional: 0 });
-    //this.loadOptionsExternal(filter);
     this.addFilterButton.closeMenu();
   }
 
