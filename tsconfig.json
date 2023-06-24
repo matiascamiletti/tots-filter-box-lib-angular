@@ -5,6 +5,9 @@
     "paths": {
       "@tots/filter-box": [
         "dist/tots/filter-box"
+      ],
+      "@tots/filter-menu": [
+        "dist/tots/filter-menu"
       ]
     },
     "baseUrl": "./",

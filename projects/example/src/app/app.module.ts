@@ -7,6 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TotsFilterBoxModule } from 'projects/tots/filter-box/src/public-api';
 import { TotsCoreModule } from '@tots/core';
 import { HttpClientModule } from '@angular/common/http';
+import { TotsFilterMenuModule } from 'projects/tots/filter-menu/src/public-api';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -18,8 +21,12 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     HttpClientModule,
 
+    MatButtonModule,
+    MatMenuModule,
+
     TotsCoreModule,
-    TotsFilterBoxModule
+    TotsFilterBoxModule,
+    TotsFilterMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,3 +7,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     min-width: 720px !important;
     max-width: 720px !important;
 }
+
+.tots-search-menu-angular {
+    &.mat-mdc-menu-panel.mat-mdc-menu-panel {
+        width: 280px;
+    }
+    .mat-mdc-menu-content {
+        padding-top: 0px !important;
+
+        mat-form-field {
+            width: 100%;
+            margin-bottom: 0px !important;
+        }
+    }
+}

@@ -1,2 +1,11 @@
 <tots-filter-box [config]="config!"></tots-filter-box>
+
+
+<button mat-button color="primary" class="btn-add-filter" [matMenuTriggerFor]="testSearchMenu">Search Menu Test</button>
+<mat-menu #testSearchMenu="matMenu" class="tots-search-menu-angular">
+    <tots-search-menu></tots-search-menu>
+</mat-menu>
+
+
+
 <router-outlet></router-outlet>

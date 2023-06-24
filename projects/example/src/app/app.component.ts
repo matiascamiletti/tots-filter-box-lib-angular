@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MultiUsersFilterComponent, StringFilterComponent, TotsFilterBoxConfig } from 'projects/tots/filter-box/src/public-api';
 import { UserService } from './services/user.service';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,8 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent implements OnInit {
   
+  @ViewChild('searchMenu', { read: MatMenuTrigger }) searchMenu!: MatMenuTrigger;
+
   config?: TotsFilterBoxConfig;
 
   constructor(

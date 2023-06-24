@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build2": "ng build --project=@tots/filter-box --configuration production && cd dist/tots/filter-box/ && npm publish --access public",
+    "build3": "ng build --project=@tots/filter-menu --configuration production && cd dist/tots/filter-menu/ && npm publish --access public",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
