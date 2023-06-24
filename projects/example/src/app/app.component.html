@@ -1,9 +1,14 @@
 <tots-filter-box [config]="config!"></tots-filter-box>
 
 
-<button mat-button color="primary" class="btn-add-filter" [matMenuTriggerFor]="testSearchMenu">Search Menu Test</button>
+<button #searchMenuButton="matMenuTrigger" mat-button color="primary" class="btn-add-filter" [matMenuTriggerFor]="testSearchMenu">Search Menu Test One Opcion</button>
 <mat-menu #testSearchMenu="matMenu" class="tots-search-menu-angular">
-    <tots-search-menu></tots-search-menu>
+    <tots-search-menu #searchMenu (selected)="onSelectedOptionInMenu($event)"></tots-search-menu>
+</mat-menu>
+
+<button #searchMenuMultipleButton="matMenuTrigger" mat-button color="primary" class="btn-add-filter" [matMenuTriggerFor]="testSearchMenuMultiple">Search Menu Multiple</button>
+<mat-menu #testSearchMenuMultiple="matMenu" class="tots-search-menu-angular">
+    <tots-search-menu #searchMenuMultiple [allowMultiple]="true"></tots-search-menu>
 </mat-menu>
 
 
