@@ -13,6 +13,21 @@
     cursor: pointer;
 }
 
+.tots-search-menu-option-selected {
+    display: flex;
+    padding: 0px 16px;
+    align-items: flex-start;
+    align-self: stretch;
+    height: 40px;
+
+    color: #000;
+    /* Body 2/Poppins Regular */
+    font-size: 14px;
+    line-height: 20px;
+
+    cursor: pointer;
+}
+
 .tots-search-menu-empty {
     display: flex;
     padding: 16px;

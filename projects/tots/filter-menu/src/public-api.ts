@@ -3,6 +3,11 @@
  */
 
 /**
+ * Entities
+ */
+export * from './lib/entities/tots-search-menu-config';
+
+/**
  * Menus
  */
 export * from './lib/menus/search-menu/search-menu.component';

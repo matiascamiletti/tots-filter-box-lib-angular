@@ -5,9 +5,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 /** Angular Material */
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 /** Menus */
 import { SearchMenuComponent } from './menus/search-menu/search-menu.component';
+
 
 
 
@@ -30,7 +32,8 @@ import { SearchMenuComponent } from './menus/search-menu/search-menu.component';
 
     /** Angular Material */
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ],
   exports: [
     /** Menus */

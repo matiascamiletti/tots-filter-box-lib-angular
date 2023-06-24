@@ -2,20 +2,23 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MultiUsersFilterComponent, StringFilterComponent, TotsFilterBoxConfig } from 'projects/tots/filter-box/src/public-api';
 import { UserService } from './services/user.service';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { SearchMenuComponent } from 'projects/tots/filter-menu/src/public-api';
+import { SearchMenuComponent, TotsSearchMenuConfig } from 'projects/tots/filter-menu/src/public-api';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit {
   
   @ViewChild('searchMenuMultiple') searchMenuMultiple!: SearchMenuComponent;
   @ViewChild('searchMenu') searchMenu!: SearchMenuComponent;
 
   @ViewChild('searchMenuMultipleButton') searchMenuMultipleButton!: MatMenuTrigger;
   @ViewChild('searchMenuButton') searchMenuButton!: MatMenuTrigger;
+  
+  configSearchMenu?: TotsSearchMenuConfig;
+  configSearchMultipleMenu?: TotsSearchMenuConfig;
 
   config?: TotsFilterBoxConfig;
 
@@ -25,7 +28,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.loadConfig();
-    
+    this.loadSearchMenu();
+    this.loadSearchMultipleMenu();
   }
 
   onSelectedOptionInMenu(item: any) {
@@ -35,18 +39,35 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.searchMenu.clearInput();
   }
 
-  ngAfterViewInit(): void {
-    this.loadSearchMenu();
+  onSelectedOptionsInMenu(items: any) {
+    console.log(items);
+
+    this.searchMenuMultiple.clearInput();
   }
 
   loadSearchMenu() {
-    let options = [
-      { value: '1', label: 'Option 1' },
-      { value: '2', label: 'Option 2' },
-      { value: '3', label: 'Option 3' },
+    this.configSearchMenu = new TotsSearchMenuConfig();
+    this.configSearchMenu.allowMultiple = false;
+    this.configSearchMenu.isNeedService = false;
+    this.configSearchMenu.options = [
+      { id: '1', label: 'Option 1' },
+      { id: '2', label: 'Option 2' },
+      { id: '3', label: 'Option 3' },
     ];
+  }
 
-    this.searchMenu.loadItems(options);
+  loadSearchMultipleMenu() {
+    this.configSearchMultipleMenu = new TotsSearchMenuConfig();
+    this.configSearchMultipleMenu.allowMultiple = true;
+    this.configSearchMultipleMenu.isNeedService = false;
+    this.configSearchMultipleMenu.options = [
+      { id: '1', label: 'Option 1' },
+      { id: '2', label: 'Option 2' },
+      { id: '3', label: 'Option 3' },
+    ];
+    this.configSearchMultipleMenu.selecteds = [
+      { id: '2', label: 'Option 2' },
+    ];
   }
 
   loadConfig() {

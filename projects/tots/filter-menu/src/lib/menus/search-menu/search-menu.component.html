@@ -3,6 +3,11 @@
         <input matInput type="text" [formControl]="input" placeholder="Search">
     </mat-form-field>
     <div class="tots-search-menu-options-container">
+        <div class="tots-search-menu-option-selected" *ngFor="let option of config.selecteds; let index = index;" (click)="onClickRemoveSelected(option)">
+            <span>{{option.label}}</span>
+            <mat-icon>close</mat-icon>
+        </div>
+        <hr *ngIf="config.allowMultiple && config.selecteds.length > 0">
         <div class="tots-search-menu-empty" *ngIf="filteredOptions.length === 0">
             <span>No results found, please try with other search terms</span>
         </div>
