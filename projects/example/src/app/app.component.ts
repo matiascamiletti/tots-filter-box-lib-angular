@@ -89,7 +89,14 @@ export class AppComponent implements OnInit {
         textButton: 'Select user',
         prependIcon: 'person',
        } },
-       { title: 'Status', component: MultiSelectFilterComponent },
+       { title: 'Status', component: MultiSelectFilterComponent, extra: {
+        allowMultiple: true,
+        options: [
+          { id: '1', label: 'Pending' },
+          { id: '2', label: 'In Progress' },
+          { id: '3', label: 'Completed' },
+        ]
+       } },
     ];
   }
 }

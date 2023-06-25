@@ -1,6 +1,6 @@
 <div class="tots-multi-select-filter">
     <div #searchMenuButton="matMenuTrigger" class="tots-simulated-intern-select" [matMenuTriggerFor]="searchMatMenu">
-        <span>Pending, In Progress, Completed...</span>
+        <span>{{printSelected()}}</span>
         <mat-icon>arrow_drop_down</mat-icon>
     </div>
 </div>
