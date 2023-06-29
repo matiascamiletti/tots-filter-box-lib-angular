@@ -1,4 +1,5 @@
 export class TotsItemFilter {
+    id?: string = '';
     title: string = '';
     component: any;
     extra?: any;
