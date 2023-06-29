@@ -38,6 +38,8 @@ export class MultiSelectFilterComponent extends TotsFilterBaseComponent {
       return 'None';
     }
 
+    this.item.value = this.selected;
+
     if(!this.configSearchMenu?.allowMultiple){
       return this.selected[this.configSearchMenu!.keyPrint];
     }
