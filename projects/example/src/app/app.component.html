@@ -1,4 +1,4 @@
-<tots-filter-box [config]="config!"></tots-filter-box>
+<tots-filter-box [config]="config!" (apply)="onApplyFilters($event)"></tots-filter-box>
 
 
 <button #searchMenuButton="matMenuTrigger" mat-button color="primary" class="btn-add-filter" [matMenuTriggerFor]="testSearchMenu">Search Menu Test One Opcion</button>

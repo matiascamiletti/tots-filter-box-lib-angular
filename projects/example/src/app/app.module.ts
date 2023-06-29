@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TotsFilterMenuModule } from 'projects/tots/filter-menu/src/public-api';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { TotsDateRangeFilterBoxModule } from 'projects/tots/date-range-filter-box/src/public-api';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MatButtonModule } from '@angular/material/button';
 
     TotsCoreModule,
     TotsFilterBoxModule,
-    TotsFilterMenuModule
+    TotsFilterMenuModule,
+    TotsDateRangeFilterBoxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

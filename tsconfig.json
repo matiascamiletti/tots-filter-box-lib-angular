@@ -3,6 +3,9 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
+      "@tots/date-range-filter-box": [
+        "dist/tots/date-range-filter-box"
+      ],
       "@tots/filter-box": [
         "dist/tots/filter-box"
       ],
