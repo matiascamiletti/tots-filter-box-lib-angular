@@ -4,6 +4,7 @@ import { UserService } from './services/user.service';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { SearchMenuComponent, TotsSearchMenuConfig } from 'projects/tots/filter-menu/src/public-api';
 import { TotsDateRangeFilterComponent } from 'projects/tots/date-range-filter-box/src/public-api';
+import { BetweenNumberFilterComponent } from 'projects/tots/filter-box/src/lib/filters/between-number-filter/between-number-filter.component';
 
 @Component({
   selector: 'app-root',
@@ -103,6 +104,7 @@ export class AppComponent implements OnInit {
         ]
        } },
        { title: 'Updated At', component: TotsDateRangeFilterComponent },
+       { title: 'Price', component: BetweenNumberFilterComponent },
     ];
   }
 }

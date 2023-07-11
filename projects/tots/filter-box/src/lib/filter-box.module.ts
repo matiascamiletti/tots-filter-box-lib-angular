@@ -26,6 +26,7 @@ import { ConditionalFilterViewComponent } from './components/conditional-filter-
 import { StringFilterComponent } from './filters/string-filter/string-filter.component';
 import { MultiUsersFilterComponent } from './filters/multi-users-filter/multi-users-filter.component';
 import { MultiSelectFilterComponent } from './filters/multi-select-filter/multi-select-filter.component';
+import { BetweenNumberFilterComponent } from './filters/between-number-filter/between-number-filter.component';
 
 
 
@@ -43,6 +44,7 @@ import { MultiSelectFilterComponent } from './filters/multi-select-filter/multi-
     StringFilterComponent,
     MultiUsersFilterComponent,
     MultiSelectFilterComponent,
+    BetweenNumberFilterComponent,
   ],
   imports: [
     /** Angular */
@@ -72,7 +74,8 @@ import { MultiSelectFilterComponent } from './filters/multi-select-filter/multi-
     /** Filters */
     StringFilterComponent,
     MultiUsersFilterComponent,
-    MultiSelectFilterComponent
+    MultiSelectFilterComponent,
+    BetweenNumberFilterComponent
   ]
 })
 export class TotsFilterBoxModule { }

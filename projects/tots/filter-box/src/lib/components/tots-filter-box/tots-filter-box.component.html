@@ -1,6 +1,6 @@
 <button #filterMainButton="matMenuTrigger" mat-button [matMenuTriggerFor]="filters" class="btn-filter">
     <mat-icon matBadge="{{ actives.length }}" [matBadgeHidden]="actives.length < 1" matBadgePosition="before">tune</mat-icon>
-    <span *ngIf="!config.isOnlyIconButton">{{config.textButton}}</span>
+    <span *ngIf="config && !config.isOnlyIconButton">{{config.textButton}}</span>
 </button>
 
 <mat-menu #filters="matMenu" class="container-filters-menu" (closed)="onApplyFilters()">
