@@ -16,6 +16,7 @@ export * from './lib/filters/string-filter/string-filter.component';
 export * from './lib/filters/multi-users-filter/multi-users-filter.component';
 export * from './lib/filters/multi-select-filter/multi-select-filter.component';
 export * from './lib/filters/between-number-filter/between-number-filter.component';
+export * from './lib/filters/multi-select-obs-filter/multi-select-obs-filter.component';
 
 /**
  * Components
