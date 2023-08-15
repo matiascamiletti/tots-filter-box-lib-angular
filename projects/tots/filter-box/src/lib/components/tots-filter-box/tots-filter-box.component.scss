@@ -1,42 +1,87 @@
-.filters-menu {
-    padding-left: 16px;
-    padding-right: 16px;
+.container-filters-menu{
+  min-width: inherit !important;
+  max-width: inherit !important;
+}
 
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 0.2em;
-    }
+.filters-menu {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  width: 640px;
+  max-width: 100%;
+}
+
+.filters-menu-header{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  h3{
+    margin: 0;
+  }
+
+  .filters-menu-header-actions{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 }
 
 .filter {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    align-self: stretch;
+  display: flex;
+  align-items: center;
+  margin: 4px 0;
+  gap: 8px;
+  align-self: stretch;
 
-    tots-print-filter {
-        width: 0px;
-    }
-    tots-string-filter, tots-multi-users-filter {
-        width: 100%;
-    }
+  tots-print-filter {
+    width: 0px;
+  }
+  tots-string-filter,
+  tots-multi-users-filter {
+    width: 100%;
+  }
 }
 
 .tots-simulated-select {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 6px;
-    padding: 4px 16px;
-    height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 4px 16px;
+  height: 40px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  background: #f0f0f0;
+  width: 140px;
+  min-width: 140px;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
 
-    border-radius: 2px;
-    border: 1px solid #DEDEDE;
-    background: #FFF;
+  @media only screen and (max-width: 599px) {
+    width: 120px;
+    min-width: 120px;
+    padding: 4px 12px;
+  }
 }
 
-.filter-selected {
-    width: 180px;
+.btn-remove-filter{
+   opacity: 0.5;
+   &:hover{
+    opacity: 1;
+   }
+}
+
+.filter-selected-value {
+  width: 100%;
+}
+
+.btn-add-filter{
+  margin-top: 8px;
 }

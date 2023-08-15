@@ -14,13 +14,13 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  
+
   @ViewChild('searchMenuMultiple') searchMenuMultiple!: SearchMenuComponent;
   @ViewChild('searchMenu') searchMenu!: SearchMenuComponent;
 
   @ViewChild('searchMenuMultipleButton') searchMenuMultipleButton!: MatMenuTrigger;
   @ViewChild('searchMenuButton') searchMenuButton!: MatMenuTrigger;
-  
+
   configSearchMenu?: TotsSearchMenuConfig;
   configSearchMultipleMenu?: TotsSearchMenuConfig;
 
@@ -83,7 +83,7 @@ export class AppComponent implements OnInit {
     this.config.textButton = 'Filters';
     this.config.isOnlyIconButton = false;
     this.config.textAddButton = '+ Add Filter';
-    this.config.textClearButton = 'Clear Filters';
+    this.config.textClearButton = 'Clean Filters';
 
     this.config.filters = [
       { title: 'Title', component: StringFilterComponent },
