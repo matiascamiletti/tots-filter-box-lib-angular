@@ -1,10 +1,10 @@
 <div class="tots-multi-select-filter">
-    <div #searchMenuButton="matMenuTrigger" class="tots-simulated-intern-select" [matMenuTriggerFor]="searchMatMenu">
-        <span>{{printSelected()}}</span>
-        <mat-icon>arrow_drop_down</mat-icon>
-    </div>
+  <button mat-button #searchMenuButton="matMenuTrigger" class="tots-simulated-intern-select" [matMenuTriggerFor]="searchMatMenu">
+    {{printSelected()}}
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
 </div>
 
 <mat-menu #searchMatMenu="matMenu" class="tots-search-menu-angular">
-    <tots-search-menu #searchMenu (selected)="onSelectedOptionInMenu($event)" (search)="onSearch($event)" [config]="configSearchMenu!"></tots-search-menu>
+  <tots-search-menu #searchMenu (selected)="onSelectedOptionInMenu($event)" (search)="onSearch($event)" [config]="configSearchMenu!"></tots-search-menu>
 </mat-menu>

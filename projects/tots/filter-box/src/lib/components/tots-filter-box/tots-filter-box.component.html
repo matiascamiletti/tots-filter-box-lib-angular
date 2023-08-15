@@ -6,22 +6,24 @@
 <mat-menu #filters="matMenu" class="container-filters-menu" (closed)="onApplyFilters()">
     <div class="filters-menu" (click)="$event.stopPropagation()">
 
-        <div class="header">
-            <h5><b>{{config.textButton}}</b></h5>
-            <div class="actions">
-                <button *ngIf="actives.length > 0" mat-button class="btn-clean-filter" (click)="onClearFilters()">{{config.textClearButton}}</button>
-                <button mat-icon-button (click)="filterMainButton.closeMenu()"><mat-icon>close</mat-icon></button>
+        <div class="filters-menu-header">
+            <h3><b>{{config.textButton}}</b></h3>
+            <div class="filters-menu-header-actions">
+              <button *ngIf="actives.length > 0" mat-button class="btn-clean-filter" (click)="onClearFilters()" color="primary">{{config.textClearButton}}</button>
+              <button mat-icon-button (click)="filterMainButton.closeMenu()"><mat-icon>close</mat-icon></button>
             </div>
-            
+
         </div>
 
         <div class="filter" *ngFor="let filter of actives; let index = index;">
             <div class="tots-simulated-select filter-selected">
-                <span>{{filter.filter.title}}</span>
+                {{filter.filter.title}}
                 <!--<mat-icon>arrow_drop_down</mat-icon>-->
             </div>
-            <tots-print-filter [item]="filter" (change)="onChange()"></tots-print-filter>
-            <button mat-icon-button (click)="onRemoveFilter(index)"><mat-icon>delete_forever</mat-icon></button>
+            <div class="filter-selected-value">
+              <tots-print-filter [item]="filter" (change)="onChange()"></tots-print-filter>
+            </div>
+            <button mat-icon-button (click)="onRemoveFilter(index)" class="btn-remove-filter"><mat-icon>delete_forever</mat-icon></button>
         </div>
 
         <button #addFilterButton="matMenuTrigger" mat-button color="primary" class="btn-add-filter" [matMenuTriggerFor]="addFilter">{{config.textAddButton}}</button>

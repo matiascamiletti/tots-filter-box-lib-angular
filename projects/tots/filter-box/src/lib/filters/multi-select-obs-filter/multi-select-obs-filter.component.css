@@ -1,16 +1,24 @@
 .tots-multi-select-filter {
-    width: 100%;
+  width: 100%;
 }
 
 .tots-simulated-intern-select {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 6px;
-    padding: 4px 16px;
-    height: 32px;
+  width: 100%;
+  padding: 4px 16px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #c2c2c2;
+  font-size: 14px;
+  justify-content: flex-start;
+  text-align: left;
+}
 
-    border-radius: 2px;
-    border: 1px solid #DEDEDE;
-    background: #FFF;
+::ng-deep .tots-multi-select-filter .mdc-button__label{
+  order: 1 !important;
+}
+
+::ng-deep .tots-multi-select-filter .mat-icon{
+  order: 2 !important;
+  margin-left: auto !important;
+  margin-right: -6px !important;
 }
