@@ -7,7 +7,7 @@
     <div class="filters-menu" (click)="$event.stopPropagation()">
 
         <div class="filters-menu-header">
-            <h3><b>{{config.textButton}}</b></h3>
+            <h4><b>{{config.textButton}}</b></h4>
             <div class="filters-menu-header-actions">
               <button *ngIf="actives.length > 0" mat-button class="btn-clean-filter" (click)="onClearFilters()" color="primary">{{config.textClearButton}}</button>
               <button mat-icon-button (click)="filterMainButton.closeMenu()"><mat-icon>close</mat-icon></button>
@@ -32,6 +32,6 @@
 </mat-menu>
 
 <mat-menu #addFilter="matMenu" style="width: 220px !important; max-width: 100vw !important;" [class]="'add-filter-menu'"  class="add-filter-menu">
-    <h5 style="margin: 0; padding: 16px 16px"><b>{{config.textButton}}</b></h5>
+    <!-- <h5 style="margin: 0; padding: 16px 16px"><b>{{config.textButton}}</b></h5> -->
     <button mat-menu-item *ngFor="let filter of config.filters" (click)="onAddFilter(filter); $event.stopPropagation();">{{filter.title}}</button>
 </mat-menu>
