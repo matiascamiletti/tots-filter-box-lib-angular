@@ -1,10 +1,11 @@
 {
   "name": "@tots/filter-box",
-  "version": "15.0.11",
+  "version": "16.0.0",
   "peerDependencies": {
-    "@angular/common": "^15.0.0",
-    "@angular/core": "^15.0.0",
-    "@tots/users-selector-menu": "^15.0.0"
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0",
+    "@tots/filter-menu": "^16.0.0",
+    "@tots/users-selector-menu": "^16.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
