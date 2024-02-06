@@ -80,10 +80,10 @@ export class AppComponent implements OnInit {
 
   loadConfig() {
     this.config = new TotsFilterBoxConfig();
-    this.config.textButton = 'Filters';
+    //this.config.textButton = 'Filters';
     this.config.isOnlyIconButton = false;
-    this.config.textAddButton = '+ Add Filter';
-    this.config.textClearButton = 'Clean Filters';
+    //this.config.textAddButton = '++ Add Filter ++';
+    //this.config.textClearButton = 'Clean Filters';
 
     this.config.filters = [
       { title: 'Title', component: StringFilterComponent },

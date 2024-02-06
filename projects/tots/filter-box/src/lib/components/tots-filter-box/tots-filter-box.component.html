@@ -1,15 +1,27 @@
-<button #filterMainButton="matMenuTrigger" mat-button [matMenuTriggerFor]="filters" class="btn-filter">
-    <mat-icon matBadge="{{ actives.length }}" [matBadgeHidden]="actives.length < 1" matBadgePosition="before">tune</mat-icon>
-    <span *ngIf="config && !config.isOnlyIconButton">{{config.textButton}}</span>
+<button
+    mat-button
+    #filterMainButton="matMenuTrigger"
+    [matMenuTriggerFor]="filters"
+    class="btn-filter"
+	[color]="matButtonColor"
+    [ngClass]="{
+        'mat-mdc-button': matButtonDirective=='mat-button',
+        'mat-mdc-unelevated-button mdc-button--unelevated': matButtonDirective=='mat-flat-button',
+        'mat-mdc-raised-button mdc-button--raised': matButtonDirective=='mat-raised-button',
+        'mat-mdc-outlined-button mdc-button--outlined': matButtonDirective=='mat-stroked-button'
+    }"
+>
+    <mat-icon matBadge="{{ actives.length }}" [matBadgeHidden]="actives.length < 1" matBadgePosition="before" *ngIf="icon">{{icon}}</mat-icon>
+    <span *ngIf="config && !config.isOnlyIconButton">{{ buttonCaption }}</span>
 </button>
 
 <mat-menu #filters="matMenu" class="container-filters-menu" (closed)="onApplyFilters()">
     <div class="filters-menu" (click)="$event.stopPropagation()">
 
         <div class="filters-menu-header">
-            <h4><b>{{config.textButton}}</b></h4>
+            <h4><b>{{ buttonCaption }}</b></h4>
             <div class="filters-menu-header-actions">
-              <button *ngIf="actives.length > 0" mat-button class="btn-clean-filter" (click)="onClearFilters()" color="primary">{{config.textClearButton}}</button>
+              <button *ngIf="actives.length > 0" mat-button class="btn-clean-filter" (click)="onClearFilters()" [color]="menuButtonsColor">{{ clearButtonCaption }}</button>
               <button mat-icon-button (click)="filterMainButton.closeMenu()"><mat-icon>close</mat-icon></button>
             </div>
 
@@ -18,7 +30,6 @@
         <div class="filter" *ngFor="let filter of actives; let index = index;">
             <div class="tots-simulated-select filter-selected">
                 {{filter.filter.title}}
-                <!--<mat-icon>arrow_drop_down</mat-icon>-->
             </div>
             <div class="filter-selected-value">
               <tots-print-filter [item]="filter" (change)="onChange()"></tots-print-filter>
@@ -26,12 +37,11 @@
             <button mat-icon-button (click)="onRemoveFilter(index)" class="btn-remove-filter"><mat-icon>delete_forever</mat-icon></button>
         </div>
 
-        <button #addFilterButton="matMenuTrigger" mat-button color="primary" class="btn-add-filter" [matMenuTriggerFor]="addFilter">{{config.textAddButton}}</button>
+        <button #addFilterButton="matMenuTrigger" mat-button [color]="menuButtonsColor" class="btn-add-filter" [matMenuTriggerFor]="addFilter">{{ addFilterButtonCaption }}</button>
 
     </div>
 </mat-menu>
 
 <mat-menu #addFilter="matMenu" style="width: 220px !important; max-width: 100vw !important;" [class]="'add-filter-menu'"  class="add-filter-menu">
-    <!-- <h5 style="margin: 0; padding: 16px 16px"><b>{{config.textButton}}</b></h5> -->
     <button mat-menu-item *ngFor="let filter of config.filters" (click)="onAddFilter(filter); $event.stopPropagation();">{{filter.title}}</button>
 </mat-menu>
