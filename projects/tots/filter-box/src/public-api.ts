@@ -6,6 +6,7 @@
  * Entities
  */
 export * from './lib/entities/tots-filter-box-config';
+export * from './lib/entities/tots-filter-box-default-config';
 export * from './lib/entities/tots-item-filter';
 
 /**

@@ -29,8 +29,8 @@ import { MultiSelectFilterComponent } from './filters/multi-select-filter/multi-
 import { BetweenNumberFilterComponent } from './filters/between-number-filter/between-number-filter.component';
 import { MultiSelectObsFilterComponent } from './filters/multi-select-obs-filter/multi-select-obs-filter.component';
 
-
-
+// Providers
+import { TOTS_FILTER_BOX_DEFAULT_CONFIG, TotsFilterBoxDefaultConfig } from './entities/tots-filter-box-default-config';
 
 @NgModule({
   declarations: [
@@ -79,6 +79,12 @@ import { MultiSelectObsFilterComponent } from './filters/multi-select-obs-filter
     MultiSelectFilterComponent,
     BetweenNumberFilterComponent,
     MultiSelectObsFilterComponent
+  ],
+  providers: [
+    {
+      provide: TOTS_FILTER_BOX_DEFAULT_CONFIG,
+      useClass: TotsFilterBoxDefaultConfig
+    },
   ]
 })
 export class TotsFilterBoxModule { }
