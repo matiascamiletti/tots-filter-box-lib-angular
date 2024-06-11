@@ -30,4 +30,8 @@ export class MultiUsersFilterComponent extends TotsFilterBaseComponent implement
     this.config.textButton = this.item.filter.extra.textButton;
     this.config.prependIcon = this.item.filter.extra.prependIcon;
   }
+
+  protected onSelection(users:any[]) {
+    this.input.patchValue(users);
+  }
 }
