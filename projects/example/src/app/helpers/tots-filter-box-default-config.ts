@@ -8,4 +8,5 @@ export const totsFilterBoxDefaultConfig : TotsFilterBoxDefaultConfig = {
   addButtonCaption: "Agregar filtro",
   clearButtonCaption: "Limpiar Filtros",
   menuButtonsColor: "accent",
+  applyFiltersButtonCaption: "Apply filters",
 }

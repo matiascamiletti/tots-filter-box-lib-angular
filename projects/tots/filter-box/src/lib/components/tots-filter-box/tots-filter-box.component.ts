@@ -14,6 +14,7 @@ import { ThemePalette } from '@angular/material/core';
 export class TotsFilterBoxComponent {
 
   @ViewChild('addFilterButton') addFilterButton!: MatMenuTrigger;
+  @ViewChild('filterMainButton') filterMainButton!: MatMenuTrigger;
 
   @Input() config!: TotsFilterBoxConfig;
 
@@ -39,6 +40,9 @@ export class TotsFilterBoxComponent {
   protected get addFilterButtonCaption() : string {
     return this.config.textAddButton || this.defaultConfig.addButtonCaption!;
   }
+  protected get applyFiltersButtonCaption() : string {
+    return this.config.textApplyFilters || this.defaultConfig.applyFiltersButtonCaption!;
+  }
   protected get clearButtonCaption() : string {
     return this.config.textClearButton || this.defaultConfig.clearButtonCaption!;
   }
@@ -49,8 +53,10 @@ export class TotsFilterBoxComponent {
     return this.config.menuButtonsColor || this.defaultConfig.menuButtonsColor;
   }
 
+
   onApplyFilters() {
     this.apply.emit(this.actives);
+    this.filterMainButton.closeMenu();
   }
 
   onClearFilters() {
@@ -68,7 +74,6 @@ export class TotsFilterBoxComponent {
   onRemoveFilter(index: number) {
     this.hasChange = true;
     this.actives.splice(index, 1);
-    this.onApplyFilters();
   }
 
   onChange() {

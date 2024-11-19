@@ -82,6 +82,8 @@
   width: 100%;
 }
 
-.btn-add-filter{
+.filter-actions{
   margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
 }

@@ -9,7 +9,7 @@ export class TotsFilterBoxConfig {
     textAddButton? : string;
     textClearButton: string = '';
     isOnlyIconButton: boolean = false;
-
+    textApplyFilters: string = '';
     buttonIcon? : string;
     matButtonDirective? : TotsFilterBoxButtonMatDirective;
     matButtonColor? : ThemePalette;
