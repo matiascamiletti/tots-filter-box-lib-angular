@@ -12,6 +12,7 @@ export class TotsFilterBoxDefaultConfig {
   buttonCaption? : string = "Filters";
 
   addButtonCaption? : string = "+ Add Filter";
+  applyFiltersButtonCaption? : string = "Apply filters";
   clearButtonCaption? : string = "Clear Filters";
   menuButtonsColor? : ThemePalette = "primary";
 }

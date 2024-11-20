@@ -15,7 +15,7 @@
     <span *ngIf="config && !config.isOnlyIconButton">{{ buttonCaption }}</span>
 </button>
 
-<mat-menu #filters="matMenu" class="container-filters-menu" (closed)="onApplyFilters()">
+<mat-menu #filters="matMenu" class="container-filters-menu" >
     <div class="filters-menu" (click)="$event.stopPropagation()">
 
         <div class="filters-menu-header">
@@ -37,7 +37,10 @@
             <button mat-icon-button (click)="onRemoveFilter(index)" class="btn-remove-filter"><mat-icon>delete_forever</mat-icon></button>
         </div>
 
-        <button #addFilterButton="matMenuTrigger" mat-button [color]="menuButtonsColor" class="btn-add-filter" [matMenuTriggerFor]="addFilter">{{ addFilterButtonCaption }}</button>
+        <div class="filter-actions">
+            <button #addFilterButton="matMenuTrigger" mat-button [color]="menuButtonsColor" [matMenuTriggerFor]="addFilter">{{ addFilterButtonCaption }}</button>
+            <button color="primary" (click)="onApplyFilters()" mat-flat-button>{{ applyFiltersButtonCaption }}</button>
+        </div>
 
     </div>
 </mat-menu>
