@@ -11,11 +11,11 @@
         'mat-mdc-outlined-button mdc-button--outlined': matButtonDirective=='mat-stroked-button'
     }"
 >
-    <mat-icon matBadge="{{ actives.length }}" [matBadgeHidden]="actives.length < 1" matBadgePosition="before" *ngIf="icon">{{icon}}</mat-icon>
+    <mat-icon matBadge="{{ appliedFilters.length }}" [matBadgeHidden]="appliedFilters.length < 1" matBadgePosition="before" *ngIf="icon">{{icon}}</mat-icon>
     <span *ngIf="config && !config.isOnlyIconButton">{{ buttonCaption }}</span>
 </button>
 
-<mat-menu #filters="matMenu" class="container-filters-menu" >
+    <mat-menu #filters="matMenu" class="container-filters-menu" (closed)="reset()">
     <div class="filters-menu" (click)="$event.stopPropagation()">
 
         <div class="filters-menu-header">
@@ -46,5 +46,7 @@
 </mat-menu>
 
 <mat-menu #addFilter="matMenu" style="width: 220px !important; max-width: 100vw !important;" [class]="'add-filter-menu'"  class="add-filter-menu">
-    <button mat-menu-item *ngFor="let filter of config.filters" (click)="onAddFilter(filter); $event.stopPropagation();">{{filter.title}}</button>
+  <ng-container *ngFor="let filter of config.filters">
+    <button [disabled]="filterAlreadyApplied(filter)" mat-menu-item  (click)="onAddFilter(filter); $event.stopPropagation();">{{filter.title}}</button>
+  </ng-container>
 </mat-menu>
