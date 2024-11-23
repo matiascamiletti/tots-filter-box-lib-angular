@@ -21,6 +21,7 @@ export class TotsFilterBoxComponent {
   @Output() apply = new EventEmitter<Array<TotsItemSelectedFilter>>();
 
   actives: Array<TotsItemSelectedFilter> = [];
+  appliedFilters: TotsItemSelectedFilter[] = [];
   hasChange: boolean = false;
 
   constructor(
@@ -53,30 +54,46 @@ export class TotsFilterBoxComponent {
     return this.config.menuButtonsColor || this.defaultConfig.menuButtonsColor;
   }
 
-
   onApplyFilters() {
     this.apply.emit(this.actives);
+    this.appliedFilters = [...this.actives];
     this.filterMainButton.closeMenu();
   }
 
   onClearFilters() {
     this.hasChange = true;
     this.actives = [];
+    this.appliedFilters = [...this.actives];
     this.onApplyFilters();
   }
 
-  onAddFilter(filter: TotsItemFilter) {
-    this.hasChange = true;
-    this.actives.push({ filter: filter, conditional: 0 });
-    this.addFilterButton.closeMenu();
+  onAddFilter(filter: TotsItemFilter): void {
+    if (!this.filterAlreadyApplied(filter)) {
+      this.hasChange = true;
+      this.actives.push({ filter: filter, conditional: 0 });
+      this.addFilterButton.closeMenu();
+    }
+  }
+
+  filterAlreadyApplied(filter: TotsItemFilter){
+    const exists = this.actives.find((active) => active.filter.title === filter.title);
+    return exists;
   }
 
   onRemoveFilter(index: number) {
     this.hasChange = true;
     this.actives.splice(index, 1);
+    this.onApplyFilters();
   }
 
   onChange() {
     this.hasChange = true;
+  }
+
+  reset(): void {
+    if (!this.appliedFilters.length) {
+      this.hasChange = false;
+      this.actives = [];
+    }
   }
 }
