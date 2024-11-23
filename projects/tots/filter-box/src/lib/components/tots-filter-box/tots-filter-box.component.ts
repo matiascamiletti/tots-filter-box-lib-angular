@@ -83,7 +83,6 @@ export class TotsFilterBoxComponent {
   onRemoveFilter(index: number) {
     this.hasChange = true;
     this.actives.splice(index, 1);
-    this.onApplyFilters();
   }
 
   onChange() {
