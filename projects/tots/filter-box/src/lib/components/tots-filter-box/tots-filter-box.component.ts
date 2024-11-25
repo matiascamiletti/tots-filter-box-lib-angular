@@ -94,5 +94,7 @@ export class TotsFilterBoxComponent {
       this.hasChange = false;
       this.actives = [];
     }
+
+    this.actives = [...this.appliedFilters];
   }
 }
