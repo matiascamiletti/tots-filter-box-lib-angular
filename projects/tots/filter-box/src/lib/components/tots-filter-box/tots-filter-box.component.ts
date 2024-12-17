@@ -77,8 +77,15 @@ export class TotsFilterBoxComponent {
 
   onApplyFilters() {
     this.apply.emit(this.actives);
-    this.appliedFilters = [...this.actives.filter((a) => a.value !== undefined)];
+    this.appliedFilters = this.getValidFilters(this.actives);
     this.filterMainButton.closeMenu();
+  }
+
+  private getValidFilters(filters: TotsItemSelectedFilter[]): TotsItemSelectedFilter[] {
+    return filters.filter(filter => {
+      if (filter.value === undefined || filter.value === null) return false;
+      return Object.values(filter.value).some(val => val !== undefined && val !== null);
+    });
   }
 
   onClearFilters() {
