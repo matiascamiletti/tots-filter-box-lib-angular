@@ -17,20 +17,30 @@ export class TotsFilterBaseComponent implements OnInit {
     input = new UntypedFormControl();
 
     ngOnInit(): void {
+        this.initializePresetValue();
         this.loadInput();
     }
 
-    /*getItemValue(): any {
-        return TotsTableHelper.getItemValueByKey(this.item, this.column.field_key);
-    }*/
+    protected initializePresetValue() {
+        if (this.item && this.item.value !== undefined) {
+            this.input.setValue(this.item.value, { emitEvent: false });
+        }
+    }
+
 
     onChange() {
         this.change.emit(true);
     }
 
     loadInput() {
+        // Ensure the initial value is set
+        if (this.item.value !== undefined) {
+            this.input.setValue(this.item.value, { emitEvent: false });
+        }
+
         this.input.valueChanges.subscribe(val => {
             this.item.value = val;
+            this.onChange();
         });
     }
 }

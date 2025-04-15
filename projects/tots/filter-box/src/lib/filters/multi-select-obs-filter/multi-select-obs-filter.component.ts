@@ -17,10 +17,22 @@ export class MultiSelectObsFilterComponent extends TotsFilterBaseComponent {
   override ngOnInit(): void {
     super.ngOnInit();
     this.loadSearchMenuConfig();
+    this.initializeSelection();
+  }
+
+  private initializeSelection() {
+    if (this.item.value) {
+      this.selected = this.item.value;
+      if (this.configSearchMenu) {
+        this.configSearchMenu.selecteds = Array.isArray(this.item.value) ? [...this.item.value] : [this.item.value];
+      }
+    }
   }
 
   onSelectedOptionInMenu(item: any) {
     this.selected = item;
+    this.item.value = this.selected;
+    this.onChange();
   }
 
   onSearch(text: string) {
@@ -34,20 +46,18 @@ export class MultiSelectObsFilterComponent extends TotsFilterBaseComponent {
   }
 
   printSelected() {
-    if(this.selected == undefined){
+    if(this.selected == undefined || (Array.isArray(this.selected) && this.selected.length === 0)){
       return 'None';
     }
-
-    if(this.selected instanceof Array && this.selected.length == 0){
-      return 'None';
-    }
-
-    this.item.value = this.selected;
 
     if(!this.configSearchMenu?.allowMultiple){
       return this.selected[this.configSearchMenu!.keyPrint];
     }
     
     return this.selected.map((item: any) => item[this.configSearchMenu!.keyPrint]).join(', ');
+  }
+
+  override initializePresetValue() {
+    this.initializeSelection();
   }
 }

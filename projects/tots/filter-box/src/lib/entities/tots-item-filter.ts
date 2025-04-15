@@ -3,6 +3,7 @@ export class TotsItemFilter {
     title: string = '';
     component: any;
     extra?: any;
+    value?: any;
 }
 
 export class TotsItemSelectedFilter {

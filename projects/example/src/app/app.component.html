@@ -1,4 +1,8 @@
-<tots-filter-box [config]="config!" (apply)="onApplyFilters($event)"></tots-filter-box>
+<tots-filter-box #filterBox [config]="config!" (apply)="onApplyFilters($event)"></tots-filter-box>
+
+<button mat-raised-button color="primary" (click)="applyDefaultFilters()">
+    Apply Saved Filters
+</button>
 
 <hr>
 
