@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TotsFilterBaseComponent } from '../tots-filter-base.component';
 import { TotsSearchMenuConfig } from '@tots/filter-menu';
 
@@ -7,40 +7,46 @@ import { TotsSearchMenuConfig } from '@tots/filter-menu';
   templateUrl: './multi-select-filter.component.html',
   styleUrls: ['./multi-select-filter.component.css']
 })
-export class MultiSelectFilterComponent extends TotsFilterBaseComponent {
+export class MultiSelectFilterComponent extends TotsFilterBaseComponent implements OnInit {
 
   configSearchMenu?: TotsSearchMenuConfig;
-
   selected?: any;
 
   override ngOnInit(): void {
-    super.ngOnInit();
     this.loadSearchMenuConfig();
+    this.initializeSelection();
+  }
+
+  private initializeSelection() {
+    if (this.item.value) {
+      this.selected = this.item.value;
+      this.configSearchMenu!.selecteds = [...this.item.value];
+    }
   }
 
   onSelectedOptionInMenu(item: any) {
     this.selected = item;
+    this.item.value = this.selected;
+    this.onChange();
   }
 
   loadSearchMenuConfig() {
     this.configSearchMenu = new TotsSearchMenuConfig();
-    this.configSearchMenu.allowMultiple = this.item.filter.extra.allowMultiple ?? true;
+    this.configSearchMenu.allowMultiple = this.item.filter.extra?.allowMultiple ?? true;
     this.configSearchMenu.isNeedService = false;
-    this.configSearchMenu.options = this.item.filter.extra.options;
+    this.configSearchMenu.options = this.item.filter.extra?.options || [];
   }
 
   printSelected() {
-    if(this.selected == undefined){
+    if (!this.selected) {
       return 'None';
     }
 
-    if(this.selected instanceof Array && this.selected.length == 0){
+    if (Array.isArray(this.selected) && this.selected.length === 0) {
       return 'None';
     }
 
-    this.item.value = this.selected;
-
-    if(!this.configSearchMenu?.allowMultiple){
+    if (!this.configSearchMenu?.allowMultiple) {
       return this.selected[this.configSearchMenu!.keyPrint];
     }
     

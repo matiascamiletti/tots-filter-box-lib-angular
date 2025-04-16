@@ -3,6 +3,7 @@ import {
   EventEmitter,
   Inject,
   Input,
+  OnInit,
   Output,
   ViewChild,
   ViewEncapsulation,
@@ -25,7 +26,7 @@ import { ThemePalette } from '@angular/material/core';
   styleUrls: ['./tots-filter-box.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class TotsFilterBoxComponent {
+export class TotsFilterBoxComponent implements OnInit {
   @ViewChild('addFilterButton') addFilterButton!: MatMenuTrigger;
   @ViewChild('filterMainButton') filterMainButton!: MatMenuTrigger;
 
@@ -41,6 +42,65 @@ export class TotsFilterBoxComponent {
     @Inject(TOTS_FILTER_BOX_DEFAULT_CONFIG)
     protected defaultConfig: TotsFilterBoxDefaultConfig
   ) {}
+
+  ngOnInit() {
+    this.initializePresetFilters();
+  }
+
+  /**
+   * Applies a set of filters dynamically
+   * @param filters Array of filters with their values
+   * @example
+   * applyFilters([
+   *   { title: 'Status', value: ['1', '2'] },
+   *   { title: 'Price', value: { min: 100, max: 1000 } }
+   * ]);
+   */
+  public applyFilters(filters: Array<{ title: string, value: any }>) {
+    // Clear current active filters
+    this.actives = [];
+    this.appliedFilters = [];
+
+    // Apply each filter
+    filters.forEach(filterToApply => {
+      const configFilter = this.config.filters.find(f => f.title === filterToApply.title);
+      if (configFilter) {
+        // Update value in configuration
+        configFilter.value = filterToApply.value;
+        
+        // Create active filter
+        const selectedFilter: TotsItemSelectedFilter = {
+          filter: { ...configFilter }, // Clone filter to avoid references
+          conditional: 0,
+          value: filterToApply.value
+        };
+
+        // Add to active filters
+        this.actives.push(selectedFilter);
+        this.appliedFilters.push(selectedFilter);
+      }
+    });
+
+    // Emit apply filters event
+    this.apply.emit(this.actives);
+  }
+
+  private initializePresetFilters() {
+    if (this.config && this.config.filters) {
+      const presetsFilters = this.config.filters.filter(filter => filter.value !== undefined);
+      presetsFilters.forEach(filter => {
+        if (!this.filterAlreadyApplied(filter)) {
+          const selectedFilter: TotsItemSelectedFilter = { 
+            filter: { ...filter }, // Clonamos el filtro para evitar referencias
+            conditional: 0,
+            value: filter.value 
+          };
+          this.actives.push(selectedFilter);
+          this.appliedFilters.push(selectedFilter);
+        }
+      });
+    }
+  }
 
   protected get icon(): string | undefined {
     return this.config.buttonIcon || this.defaultConfig.buttonIcon;
@@ -98,16 +158,18 @@ export class TotsFilterBoxComponent {
   onAddFilter(filter: TotsItemFilter): void {
     if (!this.filterAlreadyApplied(filter)) {
       this.hasChange = true;
-      this.actives.push({ filter: filter, conditional: 0 });
+      const selectedFilter: TotsItemSelectedFilter = {
+        filter: { ...filter }, // Clonamos el filtro para evitar referencias
+        conditional: 0,
+        value: filter.value
+      };
+      this.actives.push(selectedFilter);
       this.addFilterButton.closeMenu();
     }
   }
 
   filterAlreadyApplied(filter: TotsItemFilter) {
-    const exists = this.actives.find(
-      (active) => active.filter.title === filter.title
-    );
-    return exists;
+    return this.actives.some(active => active.filter.title === filter.title);
   }
 
   onRemoveFilter(index: number) {

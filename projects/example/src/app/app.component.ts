@@ -7,6 +7,7 @@ import { TotsDateRangeFilterComponent } from 'projects/tots/date-range-filter-bo
 import { BetweenNumberFilterComponent } from 'projects/tots/filter-box/src/lib/filters/between-number-filter/between-number-filter.component';
 import { MultiSelectObsFilterComponent } from 'projects/tots/filter-box/src/lib/filters/multi-select-obs-filter/multi-select-obs-filter.component';
 import { Observable, of } from 'rxjs';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ export class AppComponent implements OnInit {
 
   @ViewChild('searchMenuMultiple') searchMenuMultiple!: SearchMenuComponent;
   @ViewChild('searchMenu') searchMenu!: SearchMenuComponent;
+  @ViewChild('filterBox') filterBox!: any;
 
   @ViewChild('searchMenuMultipleButton') searchMenuMultipleButton!: MatMenuTrigger;
   @ViewChild('searchMenuButton') searchMenuButton!: MatMenuTrigger;
@@ -25,6 +27,42 @@ export class AppComponent implements OnInit {
   configSearchMultipleMenu?: TotsSearchMenuConfig;
 
   config?: TotsFilterBoxConfig;
+
+  // Example of saved filters
+  readonly SAVED_FILTERS = [
+    { 
+      title: 'Title',
+      value: 'Saved Title'
+    },
+    {
+      title: 'Status',
+      value: [
+        { id: '2', label: 'In Progress' },
+        { id: '3', label: 'Completed' }
+      ]
+    },
+    {
+      title: 'Price',
+      value: {
+        min: 500,
+        max: 2000
+      }
+    },
+    {
+      title: 'Customer',
+      value: [
+        { id: '2', label: 'Customer 2' },
+        { id: '3', label: 'Customer 3' }
+      ]
+    },
+    {
+      title: 'Updated At',
+      value: {
+        min: moment('2024-01-01').startOf('day'),
+        max: moment('2024-03-20').startOf('day')
+      }
+    }
+  ];
 
   constructor(
     protected userService: UserService
@@ -38,6 +76,12 @@ export class AppComponent implements OnInit {
 
   onApplyFilters(filters: any) {
     console.log(filters);
+  }
+
+
+  // Method to apply predefined filters
+  applyDefaultFilters() {
+    this.filterBox.applyFilters(this.SAVED_FILTERS);
   }
 
   onSelectedOptionInMenu(item: any) {
