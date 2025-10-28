@@ -39,7 +39,7 @@
 
         <div class="filter-actions">
             <button #addFilterButton="matMenuTrigger" mat-button [color]="menuButtonsColor" [matMenuTriggerFor]="addFilter">{{ addFilterButtonCaption }}</button>
-            <button color="primary" (click)="onApplyFilters()" mat-flat-button>{{ applyFiltersButtonCaption }}</button>
+            <button color="primary" (click)="onApplyFilters()" mat-flat-button [disabled]="!canApplyFilters">{{ applyFiltersButtonCaption }}</button>
         </div>
 
     </div>

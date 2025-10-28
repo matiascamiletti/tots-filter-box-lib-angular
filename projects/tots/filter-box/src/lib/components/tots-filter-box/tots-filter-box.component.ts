@@ -148,6 +148,13 @@ export class TotsFilterBoxComponent implements OnInit {
     });
   }
 
+  /**
+   * Indicates if there is at least one filter with a valid value
+   */
+  public get canApplyFilters(): boolean {
+    return this.getValidFilters(this.actives).length > 0;
+  }
+
   onClearFilters() {
     this.hasChange = true;
     this.actives = [];
