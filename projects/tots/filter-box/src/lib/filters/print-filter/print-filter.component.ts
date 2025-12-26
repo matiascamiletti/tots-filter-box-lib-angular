@@ -4,7 +4,8 @@ import { TotsItemSelectedFilter } from '../../entities/tots-item-filter';
 @Component({
   selector: 'tots-print-filter',
   templateUrl: './print-filter.component.html',
-  styleUrls: ['./print-filter.component.css']
+  styleUrls: ['./print-filter.component.css'],
+  standalone: false
 })
 export class PrintFilterComponent {
 

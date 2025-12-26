@@ -5,7 +5,8 @@ import { UntypedFormControl } from '@angular/forms';
 @Component({
   selector: 'lib-between-number-filter',
   templateUrl: './between-number-filter.component.html',
-  styleUrls: ['./between-number-filter.component.css']
+  styleUrls: ['./between-number-filter.component.css'],
+  standalone: false
 })
 export class BetweenNumberFilterComponent extends TotsFilterBaseComponent implements OnInit {
 

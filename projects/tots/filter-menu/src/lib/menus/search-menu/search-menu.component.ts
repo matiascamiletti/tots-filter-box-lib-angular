@@ -6,7 +6,8 @@ import { TotsSearchMenuConfig } from '../../entities/tots-search-menu-config';
 @Component({
   selector: 'tots-search-menu',
   templateUrl: './search-menu.component.html',
-  styleUrls: ['./search-menu.component.scss']
+  styleUrls: ['./search-menu.component.scss'],
+  standalone: false
 })
 export class SearchMenuComponent implements OnInit, AfterViewInit {
 

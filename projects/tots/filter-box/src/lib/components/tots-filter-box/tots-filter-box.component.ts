@@ -25,6 +25,7 @@ import { ThemePalette } from '@angular/material/core';
   templateUrl: './tots-filter-box.component.html',
   styleUrls: ['./tots-filter-box.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: false
 })
 export class TotsFilterBoxComponent implements OnInit {
   @ViewChild('addFilterButton') addFilterButton!: MatMenuTrigger;

@@ -3,16 +3,28 @@
         <input matInput type="text" [formControl]="input" placeholder="Search">
     </mat-form-field>
     <div class="tots-search-menu-options-container">
-        <div class="tots-search-menu-option-selected" *ngFor="let option of config.selecteds; let index = index;" (click)="onClickRemoveSelected(option)">
-            <span>{{option.label}}</span>
-            <mat-icon>close</mat-icon>
-        </div>
-        <hr *ngIf="config.allowMultiple && config.selecteds.length > 0">
-        <div class="tots-search-menu-empty" *ngIf="filteredOptions.length === 0">
-            <span>No results found, please try with other search terms</span>
-        </div>
-        <div class="tots-search-menu-option" *ngFor="let option of filteredOptions; let index = index;" (click)="onSelectOption(option)">
-            <span>{{option.label}}</span>
-        </div>
-    </div>
+		@for (option of config.selecteds; track $index) {
+			<div class="tots-search-menu-option-selected" (click)="onClickRemoveSelected(option)">
+				<span>{{option.label}}</span>
+				<mat-icon>close</mat-icon>
+			</div>
+		}
+
+		@if (config.allowMultiple && config.selecteds.length) {
+        		<hr>
+		}
+
+		@if (filteredOptions.length) {
+			<div class="tots-search-menu-empty">
+				<span>No results found, please try with other search terms</span>
+			</div>
+		}
+
+		@for (option of filteredOptions; track $index) {
+			<div class="tots-search-menu-option" (click)="onSelectOption(option)">
+				<span>{{option.label}}</span>
+			</div>
+		}
+        
+	</div>
 </div>

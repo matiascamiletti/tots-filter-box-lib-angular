@@ -6,7 +6,8 @@ import * as moment from 'moment';
 @Component({
   selector: 'tots-date-range-filter',
   templateUrl: './date-range-filter.component.html',
-  styleUrls: ['./date-range-filter.component.scss']
+  styleUrls: ['./date-range-filter.component.scss'],
+  standalone: false
 })
 export class TotsDateRangeFilterComponent extends TotsFilterBaseComponent implements OnInit {
   range = new UntypedFormGroup({

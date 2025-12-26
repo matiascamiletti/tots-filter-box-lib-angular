@@ -85,8 +85,6 @@ export class AppComponent implements OnInit {
   }
 
   onSelectedOptionInMenu(item: any) {
-    console.log(item);
-
     this.searchMenuButton.closeMenu();
     this.searchMenu.clearInput();
   }

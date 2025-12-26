@@ -5,7 +5,8 @@ import { SearchMenuComponent, TotsSearchMenuConfig } from '@tots/filter-menu';
 @Component({
   selector: 'lib-multi-select-obs-filter',
   templateUrl: './multi-select-obs-filter.component.html',
-  styleUrls: ['./multi-select-obs-filter.component.css']
+  styleUrls: ['./multi-select-obs-filter.component.css'],
+  standalone: false
 })
 export class MultiSelectObsFilterComponent extends TotsFilterBaseComponent {
   @ViewChild('searchMenu') searchMenu!: SearchMenuComponent;

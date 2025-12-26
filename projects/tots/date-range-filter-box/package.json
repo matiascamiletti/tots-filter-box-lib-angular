@@ -1,14 +1,14 @@
 {
   "name": "@tots/date-range-filter-box",
-  "version": "15.0.3",
+  "version": "20.0.0",
   "peerDependencies": {
-    "@angular/common": "^15.0.0",
-    "@angular/core": "^15.0.0",
-    "@tots/filter-box": "^15.0.5",
-    "@angular/material-moment-adapter": "^15.0.0"
+    "@angular/common": "^20.3.0",
+    "@angular/core": "^20.3.0",
+    "@tots/filter-box": "^20.0.0",
+    "@angular/material-moment-adapter": "^20.0.0"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.8.0"
   },
   "sideEffects": false
 }
