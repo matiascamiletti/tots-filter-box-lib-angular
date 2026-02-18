@@ -4,7 +4,8 @@ import { TotsItemSelectedFilter } from '../../entities/tots-item-filter';
 @Component({
   selector: 'tots-conditional-filter-view',
   templateUrl: './conditional-filter-view.component.html',
-  styleUrls: ['./conditional-filter-view.component.css']
+  styleUrls: ['./conditional-filter-view.component.css'],
+  standalone: false
 })
 export class ConditionalFilterViewComponent {
   @Input() item!: TotsItemSelectedFilter;

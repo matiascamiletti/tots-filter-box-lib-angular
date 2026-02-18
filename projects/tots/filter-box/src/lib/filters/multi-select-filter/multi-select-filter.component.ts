@@ -5,7 +5,8 @@ import { TotsSearchMenuConfig } from '@tots/filter-menu';
 @Component({
   selector: 'tots-multi-select-filter',
   templateUrl: './multi-select-filter.component.html',
-  styleUrls: ['./multi-select-filter.component.css']
+  styleUrls: ['./multi-select-filter.component.css'],
+  standalone: false
 })
 export class MultiSelectFilterComponent extends TotsFilterBaseComponent implements OnInit {
 

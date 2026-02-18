@@ -12,7 +12,8 @@ import * as moment from 'moment';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  standalone: false
 })
 export class AppComponent implements OnInit {
 
@@ -30,7 +31,7 @@ export class AppComponent implements OnInit {
 
   // Example of saved filters
   readonly SAVED_FILTERS = [
-    { 
+    {
       title: 'Title',
       value: 'Saved Title'
     },
@@ -66,7 +67,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     protected userService: UserService
-  ){}
+  ) { }
 
   ngOnInit(): void {
     this.loadConfig();
@@ -131,30 +132,36 @@ export class AppComponent implements OnInit {
 
     this.config.filters = [
       { title: 'Title', component: StringFilterComponent },
-      { title: 'Created By', component: MultiUsersFilterComponent, extra: {
-        service: this.userService,
-        searchFields: ['firstname', 'lastname'],
-        identifierField: 'id',
-        firstnameField: 'firstname',
-        lastnameField: 'lastname',
-        photoField: 'photo',
-        textButton: 'Select user',
-        prependIcon: 'person',
-       } },
-       { title: 'Status', component: MultiSelectFilterComponent, extra: {
-        allowMultiple: true,
-        options: [
-          { id: '1', label: 'Pending' },
-          { id: '2', label: 'In Progress' },
-          { id: '3', label: 'Completed' },
-        ]
-       } },
-       { title: 'Updated At', component: TotsDateRangeFilterComponent },
-       { title: 'Price', component: BetweenNumberFilterComponent },
-       { title: 'Customer', component: MultiSelectObsFilterComponent, extra: {
-        allowMultiple: true,
-        obs: this.searchAutocompleteTest.bind(this)
-       } },
+      {
+        title: 'Created By', component: MultiUsersFilterComponent, extra: {
+          service: this.userService,
+          searchFields: ['firstname', 'lastname'],
+          identifierField: 'id',
+          firstnameField: 'firstname',
+          lastnameField: 'lastname',
+          photoField: 'photo',
+          textButton: 'Select user',
+          prependIcon: 'person',
+        }
+      },
+      {
+        title: 'Status', component: MultiSelectFilterComponent, extra: {
+          allowMultiple: true,
+          options: [
+            { id: '1', label: 'Pending' },
+            { id: '2', label: 'In Progress' },
+            { id: '3', label: 'Completed' },
+          ]
+        }
+      },
+      { title: 'Updated At', component: TotsDateRangeFilterComponent },
+      { title: 'Price', component: BetweenNumberFilterComponent },
+      {
+        title: 'Customer', component: MultiSelectObsFilterComponent, extra: {
+          allowMultiple: true,
+          obs: this.searchAutocompleteTest.bind(this)
+        }
+      },
     ];
   }
 
