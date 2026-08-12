@@ -1,4 +1,4 @@
-import { Component, Input, ViewContainerRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewContainerRef } from '@angular/core';
 import { TotsItemSelectedFilter } from '../../entities/tots-item-filter';
 
 @Component({
@@ -9,6 +9,7 @@ import { TotsItemSelectedFilter } from '../../entities/tots-item-filter';
 export class PrintFilterComponent {
 
   @Input() item!: TotsItemSelectedFilter;
+  @Output() change = new EventEmitter<boolean>();
 
   constructor(
     protected viewContainerRef: ViewContainerRef
@@ -17,5 +18,10 @@ export class PrintFilterComponent {
   ngOnInit(): void {
     const view = this.viewContainerRef.createComponent(this.item.filter.component);
     (<any>view.instance).item = this.item;
+
+    const innerChange = (<any>view.instance).change;
+    if (innerChange) {
+      innerChange.subscribe(() => this.change.emit(true));
+    }
   }
 }

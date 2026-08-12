@@ -12,6 +12,7 @@ import { TotsItemFilter, TotsItemSelectedFilter } from '../../entities/tots-item
 export class TotsFilterBoxComponent {
 
   @ViewChild('addFilterButton') addFilterButton!: MatMenuTrigger;
+  @ViewChild('filterMainButton') filterMainButton!: MatMenuTrigger;
 
   @Input() config!: TotsFilterBoxConfig;
 
@@ -20,14 +21,10 @@ export class TotsFilterBoxComponent {
   actives: Array<TotsItemSelectedFilter> = [];
   hasChange: boolean = false;
 
-  onApplyFilters() {
-    this.apply.emit(this.actives);
-  }
-
   onClearFilters() {
     this.hasChange = true;
     this.actives = [];
-    this.onApplyFilters();
+    this.applyNow();
   }
 
   onAddFilter(filter: TotsItemFilter) {
@@ -39,10 +36,15 @@ export class TotsFilterBoxComponent {
   onRemoveFilter(index: number) {
     this.hasChange = true;
     this.actives.splice(index, 1);
-    this.onApplyFilters();
+    this.applyNow();
   }
 
   onChange() {
     this.hasChange = true;
+    this.applyNow();
+  }
+
+  private applyNow() {
+    this.apply.emit(this.actives);
   }
 }
