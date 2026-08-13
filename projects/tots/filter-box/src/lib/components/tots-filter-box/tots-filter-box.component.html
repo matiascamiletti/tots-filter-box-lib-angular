@@ -3,7 +3,7 @@
     <span *ngIf="config && !config.isOnlyIconButton">{{config.textButton}}</span>
 </button>
 
-<mat-menu #filters="matMenu" class="container-filters-menu" (closed)="onApplyFilters()">
+<mat-menu #filters="matMenu" class="container-filters-menu">
     <div class="filters-menu" (click)="$event.stopPropagation()">
 
         <div class="filters-menu-header">

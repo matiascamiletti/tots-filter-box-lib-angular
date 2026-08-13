@@ -24,6 +24,10 @@ export class TotsDateRangeFilterComponent extends TotsFilterBaseComponent implem
   override loadInput() {
       this.range.valueChanges.subscribe(val => {
           this.item.value = val;
+          // Only auto-apply once the full range is selected, to avoid filtering on a half-picked date.
+          if (val.start && val.end) {
+            this.onChange();
+          }
       });
   }
 }

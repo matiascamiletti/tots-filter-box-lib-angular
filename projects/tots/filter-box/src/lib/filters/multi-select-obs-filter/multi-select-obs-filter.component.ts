@@ -21,6 +21,8 @@ export class MultiSelectObsFilterComponent extends TotsFilterBaseComponent {
 
   onSelectedOptionInMenu(item: any) {
     this.selected = item;
+    this.item.value = item;
+    this.onChange();
   }
 
   onSearch(text: string) {
